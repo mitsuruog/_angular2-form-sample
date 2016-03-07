@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Angular2 Input Sample.</h2>
+  
+  <button class="btn btn-default" (click)="onClickMe()">Click Me!!</button>
+  <p>{{clickMessage}}</p>
+
+  <input class="form-control" (keyup)="onKeyup($event)">
+  <p>{{keyupValues}}</p>
+
+  <input class="form-control" 
+    #box1 
+    (keyup)="0" placeholder="box1">
+  <p>{{box1.value}}</p>
+
+  <input class="form-control" 
+    #box2 
+    (keyup)="onBox2Keyup(box2.value)" placeholder="box2">
+  <p>{{box2Values}}</p>
+
+  <input class="form-control" 
+    #box3 
+    (keyup.enter)="onBox3Keyup(box3.value)" placeholder="box3">
+  <p>{{box3Values}}</p>
+
+  <input class="form-control" 
+    #box4 
+    (keyup.enter)="onBox4Keyup(box4.value)" 
+    (blur)="box4Values=box4.value" placeholder="box4">
+  <p>{{box4Values}}</p>
+
+  <input class="form-control" 
+    #newHero 
+    (keyup.enter)="addHero(newHero.value)" 
+    (blur)="addHero(newHero.value); newHero.value=''" 
+    placeholder="box5">
+  <button class="btn btn-default" (click)="addHero(newHero.value)">Add</button>
+  <ui>
+    <li *ngFor="#hero of heroes">{{hero}}</li>
+  </ui>
+</div>
